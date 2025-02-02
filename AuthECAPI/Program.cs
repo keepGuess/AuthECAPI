@@ -1,4 +1,5 @@
 using AuthECAPI.Controllers;
+using AuthECAPI.ControllersMapAccountEndpoints;
 using AuthECAPI.Extensions;
 using AuthECAPI.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -34,7 +35,8 @@ app.MapControllers();
 app.MapGroup("/api")
    .MapIdentityApi<AppUser>();
 app.MapGroup("/api")
-   .MapIdentityUserEndpoints(); 
+   .MapIdentityUserEndpoints()
+   .MapAccountEndpoints(); 
 
 app.Run();
 

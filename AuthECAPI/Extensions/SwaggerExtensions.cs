@@ -1,4 +1,5 @@
 ﻿using AuthECAPI.Models;
+using Microsoft.OpenApi.Models;
 
 namespace AuthECAPI.Extensions
 {
@@ -8,7 +9,32 @@ namespace AuthECAPI.Extensions
         {
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(options =>
+            {
+                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "Fill in the JWT token",
+                });
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                   {
+                       new OpenApiSecurityScheme
+                       {
+                           Reference = new OpenApiReference
+                           {
+                               Type = ReferenceType.SecurityScheme,
+                               Id="Bearer"
+                           }
+                       },
+                       new List<String>()
+                   }
+                });
+            });
             return services;
         }
 
