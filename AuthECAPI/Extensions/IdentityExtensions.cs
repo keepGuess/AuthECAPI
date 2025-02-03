@@ -11,7 +11,9 @@ namespace AuthECAPI.Extensions
     {
         public static IServiceCollection AddIdentityHandlersAndStores(this IServiceCollection services)
         {
-            services.AddIdentityApiEndpoints<AppUser>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddIdentityApiEndpoints<AppUser>()
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>();
             return services;
         }
 
@@ -53,6 +55,11 @@ namespace AuthECAPI.Extensions
                     .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)   
                     .RequireAuthenticatedUser()
                     .Build();
+
+                options.AddPolicy("HasLibrary", policy => policy.RequireClaim("Library"));
+                options.AddPolicy("FemalesOnly", policy => policy.RequireClaim("Gender","Female"));
+                options.AddPolicy("Under10", policy => policy.RequireAssertion(context => 
+                Int32.Parse(context.User.Claims.First(X => X.Type=="Age").Value)<10));
             });
             return services;
         }

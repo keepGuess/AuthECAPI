@@ -1,0 +1,66 @@
+[
+  {
+    "email": "admin1_m_age51@gmail.com",
+    "password": "admin1_m_age51",
+    "fullName": "Admin 1",
+    "role": "Admin",
+    "gender": "Male",
+    "age": 51,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI4YWMwMDY3Ni0yZDMyLTRlMDctYTlmYi0xMjkzYWFkODQyZjEiLCJHZW5kZXIiOiJNYWxlIiwiQWdlIjoiNTEiLCJyb2xlIjoiQWRtaW4iLCJMaWJyYXJ5IjoiMCIsIm5iZiI6MTczODU4Mzk5MiwiZXhwIjoxNzM5NDQ3OTkyLCJpYXQiOjE3Mzg1ODM5OTJ9.Pd-Wm9yPHhfg95N7YzBFYvkY8odwI2g7Yc1NLeOn6aM"
+  },
+  {
+    "email": "teacher1_f_age36@gmail.com",
+    "password": "teacher1_f_age36",
+    "fullName": "Teacher 1",
+    "role": "Teacher",
+    "gender": "Female",
+    "age": 36,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiIzMWFhM2JmYi02N2E0LTQ5ZGMtOWI2NC1jZWQ5NmI1ZjVmMmEiLCJHZW5kZXIiOiJGZW1hbGUiLCJBZ2UiOiIzNiIsInJvbGUiOiJUZWFjaGVyIiwiTGlicmFyeSI6IjAiLCJuYmYiOjE3Mzg1OTg5NTAsImV4cCI6MTczOTQ2Mjk1MCwiaWF0IjoxNzM4NTk4OTUwfQ.-Yl5Lyc4Lg5Kb4qighsH72tML3yFO-WAV5wyXrru2Ns"
+  },
+  {
+    "email": "teacher2_m_age40@gmail.com",
+    "password": "teacher2_m_age40",
+    "fullName": "Teacher 2",
+    "role": "Teacher",
+    "gender": "Male",
+    "age": 40,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJmZmM1YjQyNC0wZWZmLTQ5NjktODljMC0zY2RiY2E0ZmNiMzkiLCJHZW5kZXIiOiJNYWxlIiwiQWdlIjoiNDAiLCJyb2xlIjoiVGVhY2hlciIsIkxpYnJhcnkiOiIwIiwibmJmIjoxNzM4NTk5MjE5LCJleHAiOjE3Mzk0NjMyMTksImlhdCI6MTczODU5OTIxOX0.18vogOAYmVgBGcJv-SF9sujIOnVqyg0y90b1v07IStk"
+  },
+  {
+    "email": "student1_f_age21@gmail.com",
+    "password": "student1_f_age21",
+    "fullName": "Student 1",
+    "role": "Student",
+    "gender": "Female",
+    "age": 21,
+    "Library": 3452345
+  },
+  {
+    "email": "student2_m_age21@gmail.com",
+    "password": "student2_m_age21",
+    "fullName": "Student 2",
+    "role": "Student",
+    "gender": "Male",
+    "age": 21
+  },
+  {
+    "email": "student3_m_age9@gmail.com",
+    "password": "student3_m_age9",
+    "fullName": "Student 3",
+    "role": "Student",
+    "gender": "Male",
+    "age": 9,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiIyYjFjNWNjMC1hYTIzLTQyZDgtYjQxYi1hYTJhNzk2ZmQ2ZWIiLCJHZW5kZXIiOiJNYWxlIiwiQWdlIjoiOSIsInJvbGUiOiJTdHVkZW50IiwiTGlicmFyeSI6IjAiLCJuYmYiOjE3Mzg2MDQzNTksImV4cCI6MTczOTQ2ODM1OSwiaWF0IjoxNzM4NjA0MzU5fQ.UbhASmBzEMnxM-PbCy09Ap6pAKf34sGNQ9N5cfKcMcc"
+  },
+  {
+    "email": "student4_f_age9@gmail.com",
+    "password": "student4_f_age9",
+    "fullName": "Student 4",
+    "role": "Student",
+    "gender": "Female",
+    "age": 9,
+    "Library": 555434,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJkYmJlNDg2OC04MTU4LTRiZjctYmIwYy0yNGJiMzY5ODY4ODMiLCJHZW5kZXIiOiJGZW1hbGUiLCJBZ2UiOiI5Iiwicm9sZSI6IlN0dWRlbnQiLCJMaWJyYXJ5IjoiNTU1NDM0IiwibmJmIjoxNzM4NjA0MTkzLCJleHAiOjE3Mzk0NjgxOTMsImlhdCI6MTczODYwNDE5M30.mnhiEVxgSaYLINtWuXM1A_d8gbC2QLgB5fdXHDdp38M"
+  }
+ ]
+

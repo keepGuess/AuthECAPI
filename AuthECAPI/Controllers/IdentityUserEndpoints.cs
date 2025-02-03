@@ -15,6 +15,10 @@ namespace AuthECAPI.Controllers
         public string Email { get; set; }
         public string Password { get; set; }
         public string FullName { get; set; }
+        public string Role { get; set; }
+        public string Gender { get; set; }  
+        public int Age { get; set; }    
+        public int Library { get; set; }    
     }
 
     public class LoginModel
@@ -33,7 +37,8 @@ namespace AuthECAPI.Controllers
         }
 
         [AllowAnonymous]
-        private static async Task<IResult> CreateUser(UserManager<AppUser> userManager,
+        private static async Task<IResult> CreateUser(
+            UserManager<AppUser> userManager,
             [FromBody] UserRegistrationModel userRegistrationModel)
         {
             AppUser user = new AppUser()
@@ -41,8 +46,14 @@ namespace AuthECAPI.Controllers
                 UserName = userRegistrationModel.Email,
                 Email = userRegistrationModel.Email,
                 FullName = userRegistrationModel.FullName,
+                Gender = userRegistrationModel.Gender,  
+                DOB = DateOnly.FromDateTime(DateTime.Now.AddYears(-userRegistrationModel.Age)),
+                Library = userRegistrationModel.Library,
             };
-            var result = await userManager.CreateAsync(user, userRegistrationModel.Password);
+            var result = await userManager.CreateAsync(
+                user, 
+                userRegistrationModel.Password);
+            await userManager.AddToRoleAsync(user, userRegistrationModel.Role);
 
             if (result.Succeeded)
                 return Results.Ok(result);
@@ -57,15 +68,22 @@ namespace AuthECAPI.Controllers
             var user = await userManager.FindByEmailAsync(loginModel.Email);
             if (user != null && await userManager.CheckPasswordAsync(user, loginModel.Password))
             {
+                var roles = await userManager.GetRolesAsync(user);  
                 var signInKey = new SymmetricSecurityKey(
                                      Encoding.UTF8.GetBytes(appSettings.Value.JWTSecret)
                                      );
+                ClaimsIdentity claims = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim("UserID",user.Id.ToString()), 
+                    new Claim("Gender",user.Gender.ToString()),
+                    new Claim("Age",(DateTime.Now.Year - user.DOB.Year).ToString()),
+                    new Claim(ClaimTypes.Role,roles.First()),
+                });
+                if(user.Library != null)
+                    claims.AddClaim(new Claim("Library", user.Library.ToString()!)); 
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
-                    Subject = new ClaimsIdentity(new Claim[]
-                    {
-                          new Claim("UserID",user.Id.ToString())
-                    }),
+                    Subject = claims,
                     Expires = DateTime.UtcNow.AddDays(10),
                     SigningCredentials = new SigningCredentials(
                         signInKey,
